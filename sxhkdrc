@@ -1,48 +1,37 @@
-#
-# wm independent hotkeys
 #flameshot
 super + c
-	flameshot
+	flameshot gui
 
 # terminal emulator
 super + Return
 	alacritty
 
 # program launcher
-super + @space
+super + space
 	rofi no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/config.rasi
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-#lockscreen
-super + ctrl + alt + l
-	betterlockscreen -l & music.sh
 
 #volume control
 XF86AudioRaiseVolume
-	pavolume +5%
+	pafix +5%
 XF86AudioLowerVolume
-	pavolume -5%
+	pafix -5%
 XF86AudioMute
-	pavolume toggle	
+	pafix toggle	
 XF86AudioMicMute
-	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-#brightness control
-XF86MonBrightnessUp
-	brightnessctl -d "intel_backlight" set +2%
-XF86MonBrightnessDown
-	brightnessctl -d "intel_backlight" set 2%-
 #media keys 
 XF86AudioPlay
-	playerctl play-pause -p spotify
+	playerctl play-pause
 XF86AudioPause
-	playerctl play-pause -p spotify
+	playerctl play-pause
 XF86AudioNext 
-	playerctl next -p spotify
+	playerctl next 
 XF86AudioPrev 
-	playerctl previous -p spotify
+	playerctl previous 
 
 # quit/restart bspwm
 super + shift + {q,r}
